@@ -10,7 +10,7 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
-    var player: AVAudioPlayer?
+    var player: AVAudioPlayer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,26 +19,15 @@ class ViewController: UIViewController {
     
     @IBAction func keyPressed(_ sender: UIButton) {
         
-        playSound(soundName: sender.currentTitle!)
-        
-        //Reduces the sender's (the button that got pressed) opacity to half. (Уменьшает непрозрачность отправителя (кнопки, которая была нажата) до половины.)
-        sender.alpha = 0.5
-        
-        //Code should execute after 0.2 second delay. (Код должен выполняться с задержкой в 0,2 секунды.)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            //Bring's sender's opacity back up to fully opaque.(Верните непрозрачность отправителя к полной непрозрачности.)
-            sender.alpha = 1.0
-        }
+        playSound()
         
     }
     
-    func playSound(soundName: String) {
-        let url = Bundle.main.url(forResource: soundName, withExtension: "wav")
+    func playSound() {
+        let url = Bundle.main.url(forResource: "C", withExtension: "wav")
         player = try! AVAudioPlayer(contentsOf: url!)
-        player?.play()
+        player.play()
         
     }
-    
-
 }
 
