@@ -24,8 +24,11 @@ class ViewController: UIViewController {
         // Уменьшает непрозрачность отправителя (кнопки, которая была нажата) до половины.
         sender.alpha = 0.5
         
-        
-        
+        // Код должен выполняться с задержкой в 0,2 секунды
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            // Вернуть непрозрачность отправителя к полной непрозрачности
+            sender.alpha = 1.0
+        }
     }
     
     func playSound(soundName: String) {
