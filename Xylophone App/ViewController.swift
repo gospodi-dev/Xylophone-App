@@ -21,6 +21,11 @@ class ViewController: UIViewController {
         
         playSound(soundName: sender.currentTitle!)
         
+        // Уменьшает непрозрачность отправителя (кнопки, которая была нажата) до половины.
+        sender.alpha = 0.5
+        
+        
+        
     }
     
     func playSound(soundName: String) {
